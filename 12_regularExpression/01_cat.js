@@ -25,4 +25,51 @@ const bark = /bow+(woo+f)+/;
 console.log(bark.test('bowwoofwoofwooofwoooof'));
 
 const header = /<(h[1-6])>.*<\/\1>/;
-console.log(header.exec('<h1>JavaScript</h1>'))
+console.log(header.exec('<h1>JavaScript</h1>'));
+
+const jsFirst = /^JavaScript/;
+console.log(jsFirst.test('JavaScript is powerful'));
+console.log(jsFirst.test('I love JavaScript'));
+
+const jsFirst2 = /JavaScript$/;
+console.log(jsFirst2.test('JavaScript is powerful'));
+console.log(jsFirst2.test('I love JavaScript'));
+
+console.log(/Java(?=Script)/.exec('I like JavaScript')[0]);
+console.log(/Java(?!Script)/.exec('I like JavaCoffee'));
+
+const fruit = /apple|peach|orange/;
+console.log(fruit.test('2 apples'));
+
+console.log(/\bcat\b/i.test('I like CAT'));
+console.log(/\bcat\b/i.test('I like Cat'));
+
+const countFruits = /\b(\d+) (apple|peach|orange)s?\b/;
+console.log(countFruits.exec('there are 10 apples'));
+
+const s = '1 little, 2 little indian';
+console.log(s.search(/little/));
+console.log(s.search(/\d/));
+console.log(s.search(/\bindian\b/));
+console.log(s.search(/3\s/));
+
+console.log(s.replace(/indian/,  'boy'));
+console.log(s.replace(/little/,  'big'));
+console.log(s.replace(/little/g, 'big'));
+
+const person = 'Tom, tom@example.com, 010-1234-5678';
+console.log(person.replace(/0(\d{1,4}-\d{1,4}-\d{4})/g, '+82-$1'));
+
+const today = '오늘은 2016년9월10일 입니다.';
+console.log(today.replace(/(\d+)년(\d+)월(\d+)일/, '$1/$2/$3'));
+
+console.log('Tom Sawyer'.replace(/(\w+)\s(\w+)/, '$2 $1'));
+
+const text = '투명 드래곤이 [와우] 하고 울부짖었다.';
+console.log(text.replace(/^\[와우\]$/, match => {
+  let s = '';
+  for (let i = 1; i < match.length; i++) {
+    s += String.fromCodePoint(match.charCodeAt(i));
+  }
+  return s;
+}));
