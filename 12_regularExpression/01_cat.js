@@ -25,7 +25,7 @@ const bark = /bow+(woo+f)+/;
 console.log(bark.test('bowwoofwoofwooofwoooof'));
 
 const header = /<(h[1-6])>.*<\/\1>/;
-console.log(header.exec('<h1>JavaScript</h1>'));
+console.log('header', header.exec('<h1>JavaScript</h1>'));
 
 const jsFirst = /^JavaScript/;
 console.log(jsFirst.test('JavaScript is powerful'));
@@ -73,3 +73,6 @@ console.log(text.replace(/^\[와우\]$/, match => {
   }
   return s;
 }));
+
+console.log('1 little, 2 little indian'.match(/\d+/g));
+console.log('1 little, 2 little indian'.split(/\s*(\d)\s*/));
